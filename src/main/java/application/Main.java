@@ -34,11 +34,16 @@ public class Main extends Application {
 
 	private void pedirNombreJugador() {
 	    TextInputDialog dialog = new TextInputDialog();
-	    dialog.setTitle("Bienvenido a TRIVICOON");
-	    dialog.setHeaderText("Ingresa tu nombre de usuario:");
+	    dialog.setTitle("TRIVICOON");
+	    dialog.setHeaderText("🌟 Bienvenido a TRIVICOON 🌟 \nIngresa tu nombre de usuario:");
 	    dialog.setContentText("Nombre:");
 
-	    dialog.showAndWait().ifPresent(name -> {
+		dialog.getDialogPane().getStylesheets().add(
+				getClass().getResource("application.css").toExternalForm()
+		);
+
+
+		dialog.showAndWait().ifPresent(name -> {
 	        playerName = name.trim();
 	        if (playerName.isEmpty()) {
 	            showAlert("Error", "El nombre no puede estar vacío. Inténtalo de nuevo.", AlertType.ERROR);
